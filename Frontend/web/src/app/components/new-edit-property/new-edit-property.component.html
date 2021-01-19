@@ -1,0 +1,48 @@
+<div class="spinner-border text-danger" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="row" style="padding-top: 20px;">
+    <h3>{{action}} property</h3>
+    <form [formGroup]="propertyForm" (ngSubmit)="save()">
+        <div class="form-group row">
+            <label class="control-label col-md-12">Name</label>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <span class="text-danger ml-3" *ngIf="propertyForm.get('name').hasError('required') && propertyForm.get('name').touched">Name required</span>
+        </div> 
+        
+        <div class="form-group row">
+            <label class="control-label col-md-12">Location</label>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="location">
+            </div>
+            <span class="text-danger ml-3" *ngIf="propertyForm.get('location').hasError('required') && propertyForm.get('location').touched">Location required</span>
+        </div> 
+            
+        <div class="form-group row">
+            <label class="control-label col-md-12">Owner</label>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="owner">
+            </div>
+            <span class="text-danger ml-3" *ngIf="propertyForm.get('owner').hasError('required') && propertyForm.get('owner').touched">Owner required</span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-12">Price</label>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="price">
+            </div>
+            <span class="text-danger ml-3" *ngIf="propertyForm.get('price').hasError('required') && propertyForm.get('price').touched">Price required</span>
+        </div>
+        
+        <br>
+
+        <div class="form-group">
+            <button class="btn btn-success" style="float: right; margin-left: 10px;" [disabled]="propertyForm.invalid">Accept</button>
+            <button class="btn btn-secondary" style="float: right;" routerLink="/">Cancel</button>
+        </div> 
+            
+    </form>
+</div>

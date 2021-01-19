@@ -1,0 +1,10 @@
+<div class="spinner-border text-danger" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div *ngIf="property">
+    <h3>{{property.name}}</h3>
+    <h5>{{property.location}}</h5>
+    <h6>{{property.owner}}</h6>
+    <h6>{{property.price | currency}}</h6>
+</div>

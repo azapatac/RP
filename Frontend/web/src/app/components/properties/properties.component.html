@@ -1,0 +1,34 @@
+<div class="row" style="padding-top: 20px;">
+    <div class="col-lg-6">
+        <h3>Properties</h3>
+    </div>
+    <div class="col-lg-6">
+        <button class="btn btn-success" style="float: right;" routerLink="/new"> New </button>
+    </div>
+</div>
+
+ <div class="spinner-border text-danger" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<table class="table table-sm table-hover">
+    <thead>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Owner</th>
+        <th></th>
+        <th></th>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let property of properties">
+            <td> <a routerLink="/view/{{property.id}}" class="link-secondary">{{property.name}}</a> </td>
+            <td> {{property.location}} </td>
+            <td> {{property.owner}} </td>
+            <td> <button routerLink="/edit/{{property.id}}" class="btn btn-primary btn-sm" style="float: right;"> Edit </button></td>
+            <td> 
+                <button class="btn btn-danger btn-sm"  style="float: right;" (click)="delete(property.id)"> Delete </button> 
+            </td>
+        </tr >
+        
+    </tbody>
+</table>
