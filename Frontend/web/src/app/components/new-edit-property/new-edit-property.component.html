@@ -32,7 +32,7 @@
         <div class="form-group row">
             <label class="control-label col-md-12">Price</label>
             <div class="col-md-12">
-                <input type="text" class="form-control" formControlName="price">
+                <input type="number" class="form-control" formControlName="price">
             </div>
             <span class="text-danger ml-3" *ngIf="propertyForm.get('price').hasError('required') && propertyForm.get('price').touched">Price required</span>
         </div>

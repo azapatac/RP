@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Property } from '../../models/property';
-import { PropertyServiceService } from '../../services/property-service.service';
+import { PropertyService } from '../../services/property.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class ViewPropertyComponent implements OnInit {
   loading: boolean;
   property: Property;
 
-  constructor(private propertyService: PropertyServiceService, private route: ActivatedRoute) {
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute) {
     this.idProperty = + route.snapshot.paramMap.get('id');
    }
 

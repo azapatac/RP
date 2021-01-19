@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PropertyServiceService } from '../../services/property-service.service';
+import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/property';
 
 @Component({
@@ -18,7 +18,7 @@ export class NewEditPropertyComponent implements OnInit {
   propertyForm: FormGroup;
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute,
-    private propertyService: PropertyServiceService, private router: Router) { 
+    private propertyService: PropertyService, private router: Router) { 
     
       this.propertyForm = fb.group({
         name: ['', Validators.required],
@@ -62,7 +62,7 @@ export class NewEditPropertyComponent implements OnInit {
   {
     if(this.action === "New")
     {
-      const comentario  : Property = 
+      const property  : Property = 
       {
         name: this.propertyForm.get("name").value,
         location: this.propertyForm.get("location").value,
@@ -70,13 +70,13 @@ export class NewEditPropertyComponent implements OnInit {
         price: this.propertyForm.get("price").value,
       }
 
-      this.propertyService.post(comentario).subscribe(data => {
+      this.propertyService.post(property).subscribe(data => {
         this.router.navigate(['/']);
       });      
     }
     else
     {
-      const comentario  : Property =       
+      const property  : Property =       
       {
         id: this.property.id,
         name: this.propertyForm.get("name").value,
@@ -85,7 +85,7 @@ export class NewEditPropertyComponent implements OnInit {
         price: this.propertyForm.get("price").value,
       }
 
-      this.propertyService.put(this.idProperty, comentario).subscribe(data =>{
+      this.propertyService.put(this.idProperty, property).subscribe(data =>{
         this.router.navigate(['/']);
       });
     }

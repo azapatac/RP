@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Property } from '../../models/property';
-import { PropertyServiceService } from '../../services/property-service.service';
+import { PropertyService } from '../../services/property.service';
 
 @Component({
   selector: 'app-properties',
@@ -12,7 +12,7 @@ export class PropertiesComponent implements OnInit {
   loading: boolean;
   properties: Property[];
   
-  constructor(private propertyService: PropertyServiceService) { }
+  constructor(private propertyService: PropertyService) { }
 
   ngOnInit(): void {    
     this.loadProperties();

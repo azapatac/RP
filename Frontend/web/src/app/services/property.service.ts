@@ -6,7 +6,7 @@ import { Property } from '../models/property';
 @Injectable({
   providedIn: 'root'
 })
-export class PropertyServiceService {
+export class PropertyService {
 
   appUrl = 'https://localhost:13760/';
   apiUrl = 'api/property/';
